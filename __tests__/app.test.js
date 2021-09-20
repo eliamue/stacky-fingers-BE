@@ -71,7 +71,7 @@ describe('Resources CRUD routes', () => {
     const resource3 = await Resources.createResource({
       src_name: 'Multnomah County Animal Services',
       category: 'Animals',
-      src_description: 'Multnomah County Animal Services (MCAS) is the county’s sole public animal shelter and control agency. The mission of MCAS is to protect the health, safety and welfare of people and pets throughout Multnomah County. MCAS cares for the community’s lost, homeless, stray, injured, sick, neglected and abandoned animals.',
+      src_description: 'Multnomah County Animal Services is the county’s sole public animal shelter and control agency. The mission of MCAS is to protect the health, safety and welfare of people and pets throughout Multnomah County. MCAS cares for the community’s lost, homeless, stray, injured, sick, neglected and abandoned animals.',
       st_address: '1700 W Historic River Hwy',
       city: 'Troutdale',
       zip: 97060,
