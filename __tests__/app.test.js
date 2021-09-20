@@ -39,7 +39,7 @@ describe('Resources CRUD routes', () => {
   });
 
   it('tests getting all resources', async () => {
-    const resource1 = await Resources.insert({
+    const resource1 = await Resources.createResource({
       src_name: 'Tubman Family Crisis and Support Services',
       category: 'Mental Health',
       src_description: 'Tubman helps people of all ages, genders, and cultural backgrounds who have experienced relationship violence, elder abuse, addiction, sexual exploitation or other forms of trauma. Throughout the Twin Cities, Tubman provides safe shelter, legal services, mental and chemical health counseling, youth programming, and community education, including public information campaigns to provide community members the information and support they need to get help or give help.',
@@ -54,7 +54,7 @@ describe('Resources CRUD routes', () => {
       is_24_7: true,
     });
 
-    const resource2 = await Resources.insert({
+    const resource2 = await Resources.createResource({
       src_name: 'Domestic Violence Resource Center',
       category: 'Domestic',
       src_description: 'The Domestic Violence Resource Center provides free, confidential, bilingual services in an effort to bring an end to family violence in Washoe County.',
@@ -69,7 +69,7 @@ describe('Resources CRUD routes', () => {
       is_24_7: true,
     });
 
-    const resource3 = await Resources.insert({
+    const resource3 = await Resources.createResource({
       src_name: 'Multnomah County Animal Services',
       category: 'Animals',
       src_description: 'Multnomah County Animal Services (MCAS) is the county’s sole public animal shelter and control agency. The mission of MCAS is to protect the health, safety and welfare of people and pets throughout Multnomah County. MCAS cares for the community’s lost, homeless, stray, injured, sick, neglected and abandoned animals.',
@@ -84,7 +84,7 @@ describe('Resources CRUD routes', () => {
       is_24_7: true,
     });
 
-    const resource4 = await Resources.insert({
+    const resource4 = await Resources.createResource({
       src_name: 'St Paul Animal Control Center',
       category: 'Animals',
       src_description: '',
@@ -99,7 +99,7 @@ describe('Resources CRUD routes', () => {
       is_24_7: false,
     });
 
-    const resource5 = {
+    const resource5 = await Resources.createResource({
       src_name: 'Day One Crime Victim Support Line',
       category: 'Crisis',
       src_description: 'Day One hosts the statewide support line for general crime victims. Help is available to you no matter where you’re located in the state of Minnesota. 24/7 support line.',
@@ -112,7 +112,7 @@ describe('Resources CRUD routes', () => {
       website: 'https://dayoneservices.org/',
       email: 'safety@dayoneservices.org',
       is_24_7: true,
-    };
+    });
 
     const res = await request(app).get('/api/v1/resources');
 
