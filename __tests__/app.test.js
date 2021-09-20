@@ -37,7 +37,7 @@ describe('Resources CRUD routes', () => {
     });
   });
 
-  it('tests getting all resources', async () => {
+  it('gets all resources', async () => {
     const resource1 = await Resources.createResource({
       src_name: 'Tubman Family Crisis and Support Services',
       category: 'Mental Health',
@@ -193,7 +193,7 @@ describe('Resources CRUD routes', () => {
       email: '',
       is_24_7: false,
     });
-    
+
     const res = await request(app).delete(`/api/v1/resources/${resource.id}`);
 
     expect(res.body).toEqual({
