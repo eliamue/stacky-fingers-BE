@@ -177,4 +177,27 @@ describe('Resources CRUD routes', () => {
       phone: '866-223-1111'
     });
   });
+
+  it('deletes a specific existing resource', async () => {
+    const resource = await Resources.createResource({
+      src_name: 'St Paul Animal Control Center',
+      category: 'Animals',
+      src_description: '',
+      st_address: '1285 Jessamine Avenue West',
+      city: 'St Paul',
+      zip: 55108,
+      us_state: 'MN',
+      phone: '651-266-1100',
+      text_num: '651-266-8989',
+      website: 'https://www.stpaul.gov/departments/safety-inspections/animal-control-information',
+      email: '',
+      is_24_7: false,
+    });
+    
+    const res = await request(app).delete(`/api/v1/resources/${resource.id}`);
+
+    expect(res.body).toEqual({
+      message: `You have deleted ${resource.src_name}.`,
+    });
+  });
 });
