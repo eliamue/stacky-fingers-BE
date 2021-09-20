@@ -15,15 +15,15 @@ describe('Resources CRUD routes', () => {
 
   it('creates a new resource', async () => {
     const resource = {
-      name: 'Day One Crime Victim Support Line',
+      src_name: 'Day One Crime Victim Support Line',
       category: 'Crisis',
-      description: 'Day One hosts the statewide support line for general crime victims. Help is available to you no matter where you’re located in the state of Minnesota. 24/7 support line.',
-      address: '1000 E 80th St',
+      src_description: 'Day One hosts the statewide support line for general crime victims. Help is available to you no matter where you’re located in the state of Minnesota. 24/7 support line.',
+      st_address: '1000 E 80th St',
       city: 'Bloomington',
-      state: 'MN',
+      us_state: 'MN',
       zip: 55420,
       phone: '1-(866)-223-1111',
-      text: '612-399-9995',
+      text_num: '612-399-9995',
       website: 'https://dayoneservices.org/',
       email: 'safety@dayoneservices.org',
       is_24_7: true
