@@ -119,7 +119,7 @@ describe('Resources CRUD routes', () => {
   });
 
   it('gets one resource by id', async () => {
-    const resource = {
+    const resource = await Resources.createResource({
       src_name: 'Day One Crime Victim Support Line',
       category: 'Crisis',
       src_description: 'Day One hosts the statewide support line for general crime victims. Help is available to you no matter where you’re located in the state of Minnesota. 24/7 support line.',
@@ -132,11 +132,37 @@ describe('Resources CRUD routes', () => {
       website: 'https://dayoneservices.org/',
       email: 'safety@dayoneservices.org',
       is_24_7: true,
-    };
+    });
 
-
-    const res = await request(app).get(`/api/v1/resourcess/${resource.id}`);
+    const res = await request(app)
+      .get(`/api/v1/resources/${resource.id}`);
 
     expect(res.body).toEqual(resource);
+  });
+
+  it('updates a resource', async () => {
+    const resource = await Resources.createResource({
+      src_name: 'Day One Crime Victim Support Line',
+      category: 'Crisis',
+      src_description: 'Day One hosts the statewide support line for general crime victims. Help is available to you no matter where you’re located in the state of Minnesota. 24/7 support line.',
+      st_address: '1000 E 80th St',
+      city: 'Bloomington',
+      zip: 55420,
+      us_state: 'MN',
+      phone: '1-(866)-223-1111',
+      text_num: '612-399-9995',
+      website: 'https://dayoneservices.org/',
+      email: 'safety@dayoneservices.org',
+      is_24_7: true,
+    });
+    const res = await request(app)
+      .put(`/api/v1/resources/${resource.id}`)
+      .send({
+        phone: '866-223-1111'
+      });
+    expect(res.body).toEqual({
+      ...resource,
+      phone: '866-223-1111'
+    });
   });
 });
