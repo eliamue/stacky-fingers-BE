@@ -1,17 +1,9 @@
-import pool from '../lib/utils/pool.js';
-import setup from '../data/setup.js';
+
 import request from 'supertest';
 import app from '../lib/app.js';
 import Resources from '../lib/models/Resources.js';
 //testing
 describe('Resources CRUD routes', () => {
-  beforeEach(() => {
-    return setup(pool);
-  });
-
-  afterAll(() => {
-    pool.end();
-  });
 
   it('creates a new resource', async () => {
     const resource = {
