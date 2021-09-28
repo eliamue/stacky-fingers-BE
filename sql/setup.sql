@@ -8,10 +8,10 @@ CREATE TABLE resources (
     st_address TEXT,
     city TEXT NOT NULL,
     us_state TEXT NOT NULL,
-    zip INT NOT NULL,
+    zip TEXT,
     phone TEXT NOT NULL,
     text_num TEXT,
     website TEXT,
     email TEXT,
-    is_24_7 BOOLEAN
+    is_24_7 TEXT
 );
